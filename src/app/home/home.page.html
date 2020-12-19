@@ -1,0 +1,34 @@
+<app-sidebar></app-sidebar>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Extratos</ion-title>
+    <ion-icon (click)="logout()" name="log-out-outline" slot="end"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let data of apiData" (click)="goToAdress(data.endereco)">
+    <ion-card-header>
+      <ion-card-title  class="space-between">
+        <div>{{data.codGaragem}} - {{data.garagem}}</div>       
+        <ion-card-subtitle>          
+          <ion-icon name="cash" color="success"></ion-icon>
+          <ion-label color="ligth">R$ {{data.valor}}</ion-label>
+        </ion-card-subtitle>
+      </ion-card-title>
+      <ion-card-subtitle class="font-smaller">
+        <ion-icon name="location-outline"></ion-icon>
+        {{data.endereco.toLowerCase()}}
+      </ion-card-subtitle>
+    </ion-card-header>
+  
+    <ion-card-content class="font-smaller"> 
+      <ion-icon name="time-outline"></ion-icon>    
+      <div>
+        <p>Entrada: {{data.dataEntrada | date : dateFormat }}</p>
+        <p>Saída: {{data.dataSaida | date : dateFormat }}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

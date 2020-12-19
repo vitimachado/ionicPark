@@ -1,0 +1,48 @@
+form {
+    padding: 20px;
+}
+
+ion-item {
+    border-radius: 50px;
+    height: 50px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
+    --highligth-heigth: 0px;
+
+    &:hover {
+        border: 2px solid #00205b;
+    }
+
+    ion-input {
+        font-size: 18px;
+    }
+
+    a {
+        font-size: 18px;
+        letter-spacing: 0.5px;
+        text-decoration: none;
+    }
+}
+
+.wrapper-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: -webkit-fill-available;
+}
+
+.logo-header {
+    display: flex;
+    justify-content: center;
+}
+
+.errors {
+    color: red;
+    font-size: xx-small;
+    margin-left: 20px;
+}
+
+.error-login {
+    text-align: center;
+    margin-top: 5px;
+}

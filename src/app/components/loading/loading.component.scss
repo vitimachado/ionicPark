@@ -1,0 +1,10 @@
+.ion-spinner-wrapper {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(56 58 62 / 0.6);
+}

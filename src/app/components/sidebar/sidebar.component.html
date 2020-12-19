@@ -1,0 +1,14 @@
+<ion-menu side="start" type="overlay" contentId="main-content">
+  <ion-content>
+    <ion-list id="inbox-list">
+      <ion-list-header>{{userKey?.name}}</ion-list-header>
+      <ion-note>{{userKey?.cpf}}</ion-note>
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+          <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+          <ion-label>{{ p.title }}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
