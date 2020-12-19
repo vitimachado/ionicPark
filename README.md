@@ -12,4 +12,4 @@ App para estacionamento feito em Ionic/Angular (teste)
 ---
 ## Authors
 
-* **Vitor Machado** - [bexsit](https://github.com/vitimachado/bexsit)
+* **Vitor Machado**
