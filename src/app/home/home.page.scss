@@ -21,6 +21,7 @@ ion-card {
 
     ion-card-content {
         display: flex;
+        justify-content: space-between;
         ion-icon {
             margin-top: 3px;
             margin-right: 5px;

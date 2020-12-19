@@ -27,7 +27,6 @@ export class StorageService {
         return JSON.parse(ret.value);
     }
 
-
     async removeItem(key: string) {
         await Storage.remove({ key });
     }

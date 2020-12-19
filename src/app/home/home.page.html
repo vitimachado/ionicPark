@@ -23,12 +23,16 @@
       </ion-card-subtitle>
     </ion-card-header>
   
-    <ion-card-content class="font-smaller"> 
-      <ion-icon name="time-outline"></ion-icon>    
+    <ion-card-content class="font-smaller">  
       <div>
         <p>Entrada: {{data.dataEntrada | date : dateFormat }}</p>
         <p>Saída: {{data.dataSaida | date : dateFormat }}</p>
       </div>
+      <div>
+        <ion-icon name="time-outline"></ion-icon>   
+        {{ getDiffDateTIme(data.dataEntrada, data.dataSaida) }}
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>
+0

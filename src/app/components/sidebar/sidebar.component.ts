@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { ExtractService } from 'src/app/services/extract.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { User } from 'src/app/services/user.model';
 
@@ -46,7 +45,6 @@ export class SidebarComponent implements OnInit {
   }
  
   async logout() {
-    console.log('logout')
     await this.authService.logout();
     this.router.navigateByUrl('/login', { replaceUrl: true });
   }

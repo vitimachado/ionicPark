@@ -13,7 +13,6 @@ export class IntroGuard implements CanLoad {
  
   async canLoad(): Promise<boolean> {     
     return await this.storage.getString(WELCOME_KEY).then((hasSeenIntro: any) => {
-      console.log('hasIntro', hasSeenIntro.value)
       if (!hasSeenIntro.value || hasSeenIntro.value === 'false') {
         return true;
       } else {

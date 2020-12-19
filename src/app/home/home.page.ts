@@ -12,6 +12,8 @@ const { Geolocation } = Plugins;
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
+import * as moment from 'moment'
+
 const USER_KEY = 'user-data';
 const TOKEN_KEY = 'login-token';
 
@@ -24,6 +26,7 @@ export class HomePage implements OnInit {
 
   apiData: any[];
   dateFormat: string = "HH:mm:ss dd/MM/yyyy";
+  diffDateTime: any;
   welcomeKey: string = "null";
   tokenKey: string = "null";
   userKey: {};  
@@ -44,11 +47,8 @@ export class HomePage implements OnInit {
       toast.present();
     }
  
-  async canLoad() {     
-    // await this.storage.getString(WELCOME_KEY).then((hasSeenIntro: any) => this.welcomeKey = JSON.parse(hasSeenIntro.value));
-    // await this.storage.getObject(USER_KEY).then((hasUser: any) => this.userKey = hasUser);
+  async canLoad() {
     await this.storage.getString(TOKEN_KEY).then((token: any) => {
-      console.log('TOKEN_KEY', token.value)
       this.tokenKey = token.value;
       this.extractService.extracts(this.tokenKey)
       .then(
@@ -56,7 +56,6 @@ export class HomePage implements OnInit {
           this.apiData = res;
         },
         err => {
-          console.log('HTTP request err.', err)
           this.presentToast(err.statusText);
           if(err.status == 401) {
             this.authenticationService.logout();
@@ -87,6 +86,14 @@ export class HomePage implements OnInit {
         this.presentToast(error)
      });
      
+  }
+
+  getDiffDateTIme(dataEntrada, dataSaida) {
+    var a = moment(dataEntrada);
+    var b = moment(dataSaida);
+    var ms = moment(b,"DD/MM/YYYY HH:mm:ss").diff(moment(a,"DD/MM/YYYY HH:mm:ss"));
+    var d = moment.duration(ms);
+    return Math.floor(d.asHours()) + moment.utc(ms).format(":mm:ss");
   }
 
   async logout() {
