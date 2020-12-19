@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
@@ -13,8 +13,6 @@ export class LoadingComponent {
   value = 50;
   isLoading: BehaviorSubject<boolean> = this.loadingService.isLoading;
 
-  constructor(private loadingService: LoadingService){
-    //this.isLoading = this.loadingService.isLoading;
-  }  
+  constructor(private loadingService: LoadingService){ }  
 
 }
