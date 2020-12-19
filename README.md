@@ -7,6 +7,7 @@ App para estacionamento feito em Ionic/Angular (teste)
 * Install the ionic CLI globally: `npm install -g ionic`
 * Run `npm install` from the project root.
 * Run `ionic serve` in a terminal from the project root.
+* Or `ionic capacitor build`
    
 ---
 ## Authors
