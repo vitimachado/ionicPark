@@ -2,11 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+const baseUrl = "http://172.21.2.240";
+const port = "3030";
+
 export const environment = {
   production: false,
   endpoints: {
-    login:  `http://10.0.2.2:3030/api/login`,
-    extract: `http://10.0.2.2:3030/api/extract`
+    login: `${baseUrl}:${port}/api/login`,
+    extract: `${baseUrl}:${port}/api/extract`,
   }
 };
 

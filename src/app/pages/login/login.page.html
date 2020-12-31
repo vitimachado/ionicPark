@@ -1,0 +1,42 @@
+<ion-content>
+  <div class="wrapper-login">
+    <div id="header" class="logo-header">
+      <img src="assets/logo.png" width="100" height="100"/>
+    </div>
+    <form id="form" (ngSubmit)="onSubmit()" [formGroup]="credentials">
+      <ion-item class="ion-margin-bottom" lines="none">
+        <div class="wrapper-input">
+          <ion-label position="floating">CPF</ion-label>
+          <ion-input 
+            type="text"
+            maxlength="14"
+            formControlName="cpf"
+            (ionChange)="maskCpf($event)"></ion-input>
+          <!-- <input type="text" formControlName="cpf" mask="CPF_CNPJ" maxlength="14"/> -->
+        </div>
+      </ion-item>
+      <div class="wrapper-error">
+        <div *ngIf="(cpf.dirty || cpf.touched) && cpf.errors" class="errors">
+          <span *ngIf="cpf.errors?.required">O CPF é necessário.</span>
+          <span *ngIf="cpf.errors?.minlength">O CPF não tem 11 dígitos.</span>
+        </div>
+      </div>    
+      <ion-item class="ion-margin-bottom" lines="none">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <div class="wrapper-error">
+        <div *ngIf="(password.dirty || password.touched) && password.errors" class="errors">
+          <span *ngIf="password.errors?.required">A senha é necessária.</span>
+          <span *ngIf="password.errors?.minlength">A senha deve ter mais de 6 dígitos.</span>
+        </div>
+      </div>
+      <ion-button type="submit" expand="block" [disabled]="!credentials.valid" shape="round" >Login</ion-button>      
+      <div class="wrapper-error">
+        <div *ngIf="msgError" class="errors error-login">
+          <span>{{ msgError | json }}</span>
+        </div> 
+      </div> 
+    </form>
+  </div>
+</ion-content>

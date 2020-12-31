@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
-import { SidebarModule } from '../components/sidebar/sidebar.module';
+import { SidebarModule } from '../../components/sidebar/sidebar.module';
 
 @NgModule({
   imports: [

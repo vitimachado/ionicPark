@@ -15,7 +15,10 @@ import { InterceptorModule } from './services/interceptors/interceptor.module';
 import { Brightness } from '@ionic-native/brightness/ngx';
 import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { HTTP } from '@ionic-native/http/ngx';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +26,7 @@ import { HTTP } from '@ionic-native/http/ngx';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    NgxMaskModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
     LoadingModule,

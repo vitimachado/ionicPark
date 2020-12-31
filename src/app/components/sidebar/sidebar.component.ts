@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { MenuController } from '@ionic/angular';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { StorageService } from 'src/app/services/storage.service';
+import { StorageService } from 'src/app/services/storage/storage.service';
 import { User } from 'src/app/services/user.model';
 
 const USER_KEY = 'user-data';
-
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -27,8 +24,6 @@ export class SidebarComponent implements OnInit {
   ];
 
   constructor(
-    private authService: AuthenticationService,
-    private router: Router,
     private menu: MenuController,
     private storage: StorageService) { }
 
@@ -44,8 +39,4 @@ export class SidebarComponent implements OnInit {
     this.menu.open('start');
   }
  
-  async logout() {
-    await this.authService.logout();
-    this.router.navigateByUrl('/login', { replaceUrl: true });
-  }
 }

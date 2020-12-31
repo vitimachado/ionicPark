@@ -36,6 +36,7 @@
     "cordova-plugin-dialogs": "^2.0.2",
     "cordova-plugin-file": "^6.0.2",
     "moment": "^2.29.1",
+    "ngx-mask": "^11.1.4",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "uk.co.workingedge.phonegap.plugin.launchnavigator": "^5.0.5",

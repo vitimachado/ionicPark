@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { WELCOME_KEY } from 'src/app/guards/intro.guard';
-import { StorageService } from '../services/storage.service';
 import { Brightness } from '@ionic-native/brightness/ngx';
+import { StorageService } from 'src/app/services/storage/storage.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-welcome',
@@ -25,7 +25,7 @@ export class WelcomePage implements OnInit {
   currentBrightness = 1;
 
   constructor(
-    private router: Router,
+    private navController: NavController,
     private storage: StorageService,
     private brightness: Brightness) { }
 
@@ -40,6 +40,6 @@ export class WelcomePage implements OnInit {
   async start() {
     this.brightness.setBrightness(this.currentBrightness);
     await this.storage.setString(WELCOME_KEY, 'true');
-    this.router.navigateByUrl('/home', { replaceUrl:true });
+    this.navController.navigateBack('home');
   }
 }

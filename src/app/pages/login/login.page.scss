@@ -1,15 +1,41 @@
 form {
+    width: 291px;
     padding: 20px;
+
+    .wrapper-error {
+        height: 10px;
+    }
 }
 
 ion-item {
-    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;    
     height: 50px;
     box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.08);
     --highligth-heigth: 0px;
+    box-sizing: border-box;
+    --moz-box-sizing: border-box;
+    --webkit-box-sizing: border-box;
+    margin-bottom: 10px;
 
-    &:hover {
+    .wrapper-input {
+        margin: auto;
+        font-size: small;
+    }
+
+    &:focus {
         border: 2px solid #00205b;
+    }
+
+    &:focus-within:required {
+        ion-item {            
+            border: 2px solid #00205b;
+        }
+
+        item-native {
+            margin: auto;
+        }
     }
 
     ion-input {

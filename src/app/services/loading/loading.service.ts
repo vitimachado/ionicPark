@@ -7,11 +7,9 @@ import { BehaviorSubject } from 'rxjs';
 export class LoadingService {
     isLoading = new BehaviorSubject<boolean>(false);
     show() {
-      console.log('this.isLoading.next(true)');
       this.isLoading.next(true);
     }
     hide() {
-      console.log('this.isLoading.next(false)');
       this.isLoading.next(false);
     }
 }

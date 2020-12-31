@@ -7,17 +7,17 @@ import { IntroGuard } from './guards/intro.guard';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
     canLoad: [AuthGuard]
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
     canLoad: [AutoLoginGuard] 
   },
   {
     path: 'welcome',
-    loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule),
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule),
     canLoad: [IntroGuard] 
   },
   {
